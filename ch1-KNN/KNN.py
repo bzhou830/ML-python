@@ -26,14 +26,14 @@ def classify0(inx,dataSet,labels,k):
 
 
 def file2matrix(filename):
-    fr = open(filename)
-    arrayOfLines = fr.readlines()
-    numberOfLines = len(arrayOfLines)
-    returnMat=zeros((numberOfLines,3))
-    classLabelVector = []
-    index = 0
-    for line in arrayOfLines:
-        line = line.strip()
+    fr = open(filename)                 #打开文件
+    arrayOfLines = fr.readlines()       #读取文件行数
+    numberOfLines = len(arrayOfLines)   #文件行数
+    returnMat=zeros((numberOfLines,3))  #矩阵
+    classLabelVector = []               #标签
+    index = 0                           
+    for line in arrayOfLines:           
+        line = line.strip() 
         listFromLine = line.split('\t')
         returnMat[index,:] = listFromLine[0:3]
         classLabelVector.append(int(listFromLine[-1]))
