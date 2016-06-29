@@ -52,5 +52,23 @@ def autoNorm(dataSet):
     return normDataSet,ranges,minVals
 
 
+def datingClassTest():
+    hoRatio = 0.20
+    datingDataMat,datingLabels = file2matrix('datingTestSet2.txt')
+    normMat, ranges, minVals = autoNorm(datingDataMat)
+    m = normMat.shape[0]
+    numTestVecs = int(m*hoRatio)
+    errorcount = 0.0
+    for i in range(numTestVecs):
+        classifierResult = classify0(normMat[i,:],normMat[numTestVecs:m,:],datingLabels[numTestVecs:m],3)
+        print "Rt is %d, Real is %d" % (classifierResult,datingLabels[i])
+        if(classifierResult != datingLabels[i]):
+            errorcount += 1.0
+
+    print " %f " % (errorcount/float(numTestVecs))
+
+
+
+
 
 
