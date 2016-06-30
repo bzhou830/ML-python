@@ -18,18 +18,19 @@ labels      训练数据集标签
 k           最临近数目
 '''
 def classify0(inx,dataSet,labels,k):
-    dataSetSize=dataSet.shape[0]                                #样本集的个数
-    diffMat=tile(inx,(dataSetSize,1)) - dataSet                 #矩阵之差
-    sqDiffMat = diffMat**2                                      #矩阵之差的平方
-    sqDistances=sqDiffMat.sum(axis=1)                           
-    distances=sqDistances**0.5
-    sortedDistIndicies = distances.argsort()
-    classCount={}
-    for i in range(k):
-        voteIlabel = labels[sortedDistIndicies[i]]
-        classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1
-    sortedClassCount=sorted(classCount.iteritems(),key=operator.itemgetter(1),reverse=True)
-    return sortedClassCount[0][0]
+    dataSetSize=dataSet.shape[0]                                    #样本集的个数
+    diffMat=tile(inx,(dataSetSize,1)) - dataSet                     #矩阵之差
+    sqDiffMat = diffMat**2                                          #矩阵之差的平方
+    sqDistances=sqDiffMat.sum(axis=1)                               #矩阵的每一行相加，得到一个向量  
+    distances=sqDistances**0.5                                      #向量的长度
+    sortedDistIndicies = distances.argsort()                        #数组从小到大的索引值
+    classCount={}                                                   #类统计
+    for i in range(k):                                              #最临近数目
+        voteIlabel = labels[sortedDistIndicies[i]]                  #最临近数的标签
+        classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1   #统计标签个数
+    sortedClassCount=sorted(classCount.iteritems(),
+                            key=operator.itemgetter(1),reverse=True)#排序
+    return sortedClassCount[0][0]                                   #返回数量最多的标签
 
 
 def file2matrix(filename):
@@ -73,9 +74,6 @@ def datingClassTest():
             errorcount += 1.0
 
     print " %f " % (errorcount/float(numTestVecs))
-
-
-
 
 
 
