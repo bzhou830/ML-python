@@ -48,10 +48,15 @@ def file2matrix(filename):
         index += 1
     return returnMat,classLabelVector
 
-
+'''
+dataSet 传入矩阵数据集
+normDataSet 返回归一化后数据集
+ranges 
+minVals 
+'''
 def autoNorm(dataSet):
-    minVals = dataSet.min(0)
-    maxVals = dataSet.max(0)
+    minVals = dataSet.min(0)                                        #
+    maxVals = dataSet.max(0)                                        #
     ranges = maxVals - minVals
     normDataSet = zeros(shape(dataSet))
     m = dataSet.shape[0]
