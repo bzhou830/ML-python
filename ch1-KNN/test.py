@@ -21,10 +21,11 @@ plt.show()
 
 #KNN.datingClassTest()
 
+#绘图
 def PrintFigure(datingDataMat,datingLabels):
     fig = plt.figure()
     ax=fig.add_subplot(111, projection='3d')
-
+    #绘制三维图
     ax.scatter(datingDataMat[:,0],datingDataMat[:,1],datingDataMat[:,2],
               5.0 * np.array(datingLabels), 5.0 * np.array(datingLabels))
     plt.show()
