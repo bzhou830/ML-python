@@ -2,6 +2,8 @@
 # coding=utf-8
 import KNN
 import numpy as np
+#import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 
 
@@ -19,6 +21,15 @@ plt.show()
 
 #KNN.datingClassTest()
 
+def PrintFigure(datingDataMat,datingLabels):
+    fig = plt.figure()
+    ax=fig.add_subplot(111, projection='3d')
+
+    ax.scatter(datingDataMat[:,0],datingDataMat[:,1],datingDataMat[:,2],
+              5.0 * np.array(datingLabels), 5.0 * np.array(datingLabels))
+    plt.show()
+
+
 def classifyPerson():
     print "输入相关信息"
     resultList = ['一点不喜欢','有点希望','可能性很大']
@@ -30,7 +41,7 @@ def classifyPerson():
     inArr = np.array([ffMiles,percentTats,ice])
     classfierRt = KNN.classify0((inArr-minVals)/ranges,normMat,datingLabels,3)
     print resultList[classfierRt - 1]
-
+    PrintFigure(normMat, datingLabels)
 
 classifyPerson()
 
