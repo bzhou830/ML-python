@@ -27,6 +27,6 @@ array([0,1,2],
       [0,1,2])
 ```
 
-![image](https://github.com/bzhou830/ML-python/tree/master/ch1-KNN/figure_1.png)
+![image](https://github.com/bzhou830/ML-python/raw/master/ch1-KNN/figure_1.png)
 
 
