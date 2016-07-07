@@ -39,6 +39,22 @@ def test():
     print shnnon                        #输出显示计算结果
 
 
+#划分数据集
+def splitDataSet(dataSet, aixs, value):
+    retDataSet=[]
+    for featVec in dataSet:
+        if featVec[aixs] == value:
+            reducedFeatVec = featVec[:aixs]
+            reducedFeatVec.extend(featVec[aixs+1:])
+            retDataSet.append(reducedFeatVec)
+    return retDataSet
+
+
+'''
+
+'''
+
+
 test()
 
 
