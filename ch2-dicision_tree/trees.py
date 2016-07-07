@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
+# created by robin 
 
 from math import log
 
@@ -41,8 +42,8 @@ def test():
 
 #划分数据集
 def splitDataSet(dataSet, aixs, value):
-    retDataSet=[]                                       #
-    for featVec in dataSet:                             #
+    retDataSet=[]                                       #返回数据集
+    for featVec in dataSet:                             #遍历原来的数据集
         if featVec[aixs] == value:                      #
             reducedFeatVec = featVec[:aixs]             #
             reducedFeatVec.extend(featVec[aixs+1:])     #
