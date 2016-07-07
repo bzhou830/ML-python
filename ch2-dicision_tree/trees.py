@@ -34,20 +34,20 @@ def createDataSet():
 
 #测试香农熵计算函数
 def test():
-    myDat,labels = createDataSet()      #创建一个数据集
-    shnnon  = calcShannonEnt(myDat)     #计算数据集合的香农熵
-    print shnnon                        #输出显示计算结果
+    myDat,labels = createDataSet()                      #创建一个数据集
+    shnnon  = calcShannonEnt(myDat)                     #计算数据集合的香农熵
+    print shnnon                                        #输出显示计算结果
 
 
 #划分数据集
 def splitDataSet(dataSet, aixs, value):
-    retDataSet=[]
-    for featVec in dataSet:
-        if featVec[aixs] == value:
-            reducedFeatVec = featVec[:aixs]
-            reducedFeatVec.extend(featVec[aixs+1:])
-            retDataSet.append(reducedFeatVec)
-    return retDataSet
+    retDataSet=[]                                       #
+    for featVec in dataSet:                             #
+        if featVec[aixs] == value:                      #
+            reducedFeatVec = featVec[:aixs]             #
+            reducedFeatVec.extend(featVec[aixs+1:])     #
+            retDataSet.append(reducedFeatVec)           #
+    return retDataSet                   
 
 
 '''
